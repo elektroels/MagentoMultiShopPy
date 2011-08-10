@@ -1,4 +1,23 @@
-# AutomatedShopSetup
+### Magento Multiple Shops Setup Python Script juli 2011.
+##
+#
+
+#import pyodbc
+#dbconn = pyodbc.connect(driver='{SQL Server}', server, database, uid, pwd)
+
+# Database Connection Using mysql.connector
+# https://launchpad.net/myconnpy
+#
+
+import mysql.connector
+
+conn = mysql.connector.Connect(host='127.0.0.1',user='connector',password='connector',database='connector')
+c = conn.cursor()
+
+c.execute("""create table towns (
+tid int primary key not NULL ,
+name text,
+postcode text)""")
 
 # Eget / Eksisterende Produkt katalog
 # 
@@ -9,8 +28,6 @@
 # http://3.bp.blogspot.com/-wig9rpuQMVI/TiGXh29gN9I/AAAAAAAAAJ4/RX1PDijpBpc/s1600/07%2Bsave%2Bstore.png
 # Store View
 # http://1.bp.blogspot.com/-YQ4FZFpR3Uk/TiGYm0jmw3I/AAAAAAAAAKI/mM1W4JbP1zw/s1600/07%2Bsave%2Bstore%2Bview.png
-#
-#
 #
 # mkdir /shops/<navn>
 #
