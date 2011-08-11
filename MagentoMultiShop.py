@@ -5,6 +5,23 @@
 # imports
 import os, errno
 
+
+def main():
+	path = '/home/troels/Git/MagentoMultiShopPy/shops/'
+	path = path + 'shopnavn'
+	mkdir(path)
+	
+	# echo .htaccess
+	htaccesscode = "hallo du der"
+	htaccess = path + '/.htaccess'
+	write_file(htaccess, htaccesscode)
+	
+	# echo index.php
+	indexphpcode = "hallo du der"
+	indexphp = path + '/index.php'
+	write_file(indexphp, indexphpcode)
+		
+
 #functions
 def mkdir(path):
     try:
@@ -19,6 +36,8 @@ def write_file(filename, filecode):
     newfile.write(filecode)
     newfile.close()
 
+#def get_code_from_file
+
 # Database Connection Using mysql.connector
 # https://launchpad.net/myconnpy
 
@@ -29,11 +48,11 @@ def write_file(filename, filecode):
 # sql oprettelse af shops og såvidere
 
 # opret website
-c.execute("""INSERT INTO core_website values (NULL , "websitetest", "websitetest", '0', '0', '0')""")
+#c.execute("""INSERT INTO core_website values (NULL , "websitetest", "websitetest", '0', '0', '0')""")
 # printe website_id også og bruge det i næste skridt
 
 # opret store                                               her website_id  navn  Root   Den her skal opdateres
-c.execute("""INSERT INTO core_store_group values (NULL , '0', 'storetest', '3', '0')""") 
+#c.execute("""INSERT INTO core_store_group values (NULL , '0', 'storetest', '3', '0')""") 
 
 # opret storeview 
 #c.execute("""INSERT INTO core_store values ()""") 
@@ -43,18 +62,7 @@ c.execute("""INSERT INTO core_store_group values (NULL , '0', 'storetest', '3', 
 
 #conn.commit()
 
-# mkdirs
-# http://stackoverflow.com/questions/600268/mkdir-p-functionality-in-python
-path = '/home/troels/Git/MagentoMultiShopPy/shops/'
-path = path + 'shopnavn'
-mkdir(path)
 
-# echo .htaccess	
-htaccesscode = "hallo du der"
-htaccess = path + '/.htaccess'
-write_file(htaccess, htaccesscode)
+if __name__ == "__main__":
+    main()
 
-# echo index.php
-indexphpcode = "hallo du der"
-indexphp = path + '/index.php'
-write_file(indexphp, indexphpcode)
