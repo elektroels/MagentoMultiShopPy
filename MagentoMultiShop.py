@@ -2,22 +2,18 @@
 ##
 #
 
-#import pyodbc
-#dbconn = pyodbc.connect(driver='{SQL Server}', server, database, uid, pwd)
-
 # Database Connection Using mysql.connector
 # https://launchpad.net/myconnpy
-#
 
 import mysql.connector
 
 conn = mysql.connector.Connect(host='127.0.0.1',user='connector',password='connector',database='connector')
 c = conn.cursor()
 
-c.execute("""create table towns (
-tid int primary key not NULL ,
-name text,
-postcode text)""")
+#c.execute("""create table towns (
+#tid int primary key not NULL ,
+#name text,
+#postcode text)""")
 
 # Eget / Eksisterende Produkt katalog
 # 
@@ -28,9 +24,22 @@ postcode text)""")
 # http://3.bp.blogspot.com/-wig9rpuQMVI/TiGXh29gN9I/AAAAAAAAAJ4/RX1PDijpBpc/s1600/07%2Bsave%2Bstore.png
 # Store View
 # http://1.bp.blogspot.com/-YQ4FZFpR3Uk/TiGYm0jmw3I/AAAAAAAAAKI/mM1W4JbP1zw/s1600/07%2Bsave%2Bstore%2Bview.png
-#
-# mkdir /shops/<navn>
-#
+
+# mkdir /shops/<navn> 
+# http://stackoverflow.com/questions/600268/mkdir-p-functionality-in-python
+import os, errno
+
+path = /opt/lampp/htdocs/mc01
+path = path + shopnavn
+
+def mkdir_p(path):
+    try:
+        os.makedirs(path)
+    except OSError as exc: # Python >2.5
+        if exc.errno == errno.EEXIST:
+            pass
+        else: raise
+
 # echo .htaccess
 #
 # echo index.php
