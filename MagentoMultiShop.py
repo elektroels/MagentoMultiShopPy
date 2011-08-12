@@ -9,7 +9,7 @@ magento_path = '/home/troels/Git/MagentoMultiShopPy/shops/'
 path = magento_path + 'shopnavn'
 
 def main():
-        #make directories
+    # make directories		# http://stackoverflow.com/questions/600268/mkdir-p-functionality-in-python
 	mkdir(path)
 	
 	# echo .htaccess
