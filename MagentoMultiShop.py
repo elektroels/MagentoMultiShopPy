@@ -5,39 +5,40 @@
 # imports
 import os, errno
 
+magento_path = '/home/troels/Git/MagentoMultiShopPy/shops/'
+path = magento_path + 'shopnavn'
 
 def main():
-	path = '/home/troels/Git/MagentoMultiShopPy/shops/'
-	path = path + 'shopnavn'
+        #make directories
 	mkdir(path)
 	
 	# echo .htaccess
-	htaccesscode = "hallo du der"
-	htaccess = path + '/.htaccess'
-	write_file(htaccess, htaccesscode)
+	htaccesscode = "hallo du der" # erstattes af funktion
+	write_file('.htaccess', htaccesscode)
 	
 	# echo index.php
-	indexphpcode = "hallo du der"
-	indexphp = path + '/index.php'
-	write_file(indexphp, indexphpcode)
+	indexphpcode = "hallo du der" # erstattes af funktion
+	write_file('index.php', indexphpcode)
 		
 
 #functions
 def mkdir(path):
-    try:
-        os.makedirs(path)
-    except OSError as exc: # Python >2.5
-        if exc.errno == errno.EEXIST:
-            pass
-        else: raise
+        try:
+                os.makedirs(path)
+        except OSError as exc: # Python >2.5
+                if exc.errno == errno.EEXIST:
+                        pass
+                else: raise
 
 def write_file(filename, filecode):
-    newfile = open(filename, "w")
-    newfile.write(filecode)
-    newfile.close()
+        path_file = path + '/' + filename
+        newfile = open(path_file, "w")
+        newfile.write(filecode)
+        newfile.close()
 
 #def get_code_from_file
 
+#def get_options_from_file
 # Database Connection Using mysql.connector
 # https://launchpad.net/myconnpy
 
