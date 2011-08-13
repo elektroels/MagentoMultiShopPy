@@ -5,16 +5,8 @@ import mysql.connector
 import re
 
 # konfiguration
-
-#hoststr = "host='%s'"
-#usrstr = "user='%s'"
-#pwdstr = "password='%s'"
-#dbstr = "database='%s'"
-
-#host = "127.0.0.1"
-#user = "connector"
-#password = "connector"
-#database = "connector"
+#hoststr = "host='%s'" #usrstr = "user='%s'" #pwdstr = "password='%s'" #dbstr = "database='%s'"
+#host = "127.0.0.1" #user = "connector" #password = "connector" #database = "connector"
 
 websitename = "websitetest" # bliver også brugt som websitecode
 storename = "storetest"
@@ -27,11 +19,7 @@ select_websiteid = "select website_id from core_website where name='%s'"
 insert_store = "INSERT INTO core_store_group values ('%s' , '%s', '%s', '%s', '0')"
 insert_store_view = "INSERT INTO core_store values (NULL, '%s', '%s', '%s', '%s', '0', '1')"
 select_storeid ="select store_id from core_store where website_id='%s'"
-
 #update_store =""
-
-#from mystatements import insert_website, select_websiteid
-#from myconfig import websitename
 
 
 def mysql_connection():
