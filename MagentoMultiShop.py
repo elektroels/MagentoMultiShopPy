@@ -2,7 +2,7 @@
 ##
 #
 
-### Possible to do's
+### To do's
 ##
 # function for retrieving configuration options from a file
 # import sql statements from a file
@@ -15,10 +15,11 @@ from htaccess import htaccess
 
 # configuration
 magento_path = '/opt/lampp/htdocs/mc01/shops/'
-websitename = "websitetest"             # also used as websitecode
-storename = "storetest"                 
-storeviewname = "storeviewtest"
+websitename = "websitetest2"             # also used as websitecode
+storename = "storetest2"                 
+storeviewname = "storeviewtest2"
 catalognr = "3"                         # 3 is standard Root Catalog
+design = "blue"
 
 # sql statements
 insert_website = "INSERT INTO core_website values (NULL , '%s', '%s', '0', '0', '0')"
@@ -28,7 +29,7 @@ insert_store = "INSERT INTO core_store_group values ('%s' , '%s', '%s', '%s', '0
 insert_store_view = "INSERT INTO core_store values (NULL, '%s', '%s', '%s', '%s', '0', '1')"
 select_storeid = "select store_id from core_store where website_id='%s'"
 update_store = "UPDATE core_store_group SET default_store_id='%s' WHERE website_id='%s'"
-#insert_coreconfig = "insert into core_config_data values ()"
+insert_coreconfig = "insert into core_config_data values (NULL , 'websites', '%s', '%s', '%s')"
 
 
 def main():
@@ -96,12 +97,19 @@ def mysql_connection():
         conn.commit()
 
         # create core_config_data
-        #c.execute(insert_coreconfig % ())
-        #c.execute(insert_coreconfig % ())
-        #c.execute(insert_coreconfig % ())
-        #c.execute(insert_coreconfig % ())
-        #c.execute(insert_coreconfig % ())
-        #c.execute(insert_coreconfig % ())
+        c.execute(insert_coreconfig % (websiteid, "web/unsecure/base_url", "http://127.0.0.1/mc01/shops/" + websitename + "/"))
+        c.execute(insert_coreconfig % (websiteid, "web/secure/base_url", "https://127.0.0.1/mc01/shops/" + websitename + "/"))
+        c.execute(insert_coreconfig % (websiteid, "design/theme/skin", design))
+        c.execute(insert_coreconfig % (websiteid, "web/default/cms_home_page", "home|5"))
+        c.execute(insert_coreconfig % (websiteid, "web/unsecure/base_skin_url", "http://127.0.0.1/mc01/skin/"))
+        c.execute(insert_coreconfig % (websiteid, "web/unsecure/base_media_url", "http://127.0.0.1/mc01/media/"))
+        c.execute(insert_coreconfig % (websiteid, "web/unsecure/base_js_url", "http://127.0.0.1/mc01/js/"))
+        c.execute(insert_coreconfig % (websiteid, "web/secure/base_skin_url", "https://127.0.0.1/mc01/skin/"))
+        c.execute(insert_coreconfig % (websiteid, "web/secure/base_media_url", "https://127.0.0.1/mc01/media/"))
+        c.execute(insert_coreconfig % (websiteid, "web/secure/base_js_url", "https://127.0.0.1/mc01/js/"))
+        
+        conn.commit()
+
         
         c.close()
 
