@@ -1,3 +1,2 @@
-
-This is part of my examn project. It's a python script meant to handle multiple shops in magento.
-Attempting to automate the setup process of adding shops.
+This is part of my examn project. 
+A python script meant to setup new shops, in a multiple shops environment, in magento.
