@@ -24,10 +24,10 @@ catalognr = "3"                 # 3 is standard Root Catalog
 # statements
 insert_website = "INSERT INTO core_website values (NULL , '%s', '%s', '0', '0', '0')"
 select_websiteid = "select website_id from core_website where name='%s'"
-insert_store = "INSERT INTO core_store_group values (NULL , '%s', '%s', '%s', '0')"
-#                                                 storeid  code webid  groupid name  sort  active
-insert_store_view = "INSERT INTO core_store values (NULL , '%s', '%s', '%s', '%s', '0', '1')"
+insert_store = "INSERT INTO core_store_group values ('%s' , '%s', '%s', '%s', '0')"
+insert_store_view = "INSERT INTO core_store values (NULL, '%s', '%s', '%s', '%s', '0', '1')"
 select_storeid ="select store_id from core_store where website_id='%s'"
+
 #update_store =""
 
 #from mystatements import insert_website, select_websiteid
@@ -50,19 +50,21 @@ def mysql_connection():
         for row in c:
                 rx = re.compile('\W+')
                 websiteid = rx.sub('', str(row)).strip()
-        #test
-        print(websiteid)
 
         # create store
-        c.execute( insert_store % (websiteid, storename, catalognr))
+        c.execute( insert_store % (websiteid, websiteid, storename, catalognr))
         conn.commit()
         
         # opret storeview 
         c.execute(insert_store_view % (websitename, websiteid, websiteid, storeviewname))
-
+        conn.commit()
+        
         # fetch store_view_id
         c.execute(select_storeid % (websiteid))
-
+        for row in c:
+                rx = re.compile('\W+')
+                storeid = rx.sub('', str(row)).strip()
+        
         # update store with store_view_id
         #c.execute(update_store) 
 
