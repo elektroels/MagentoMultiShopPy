@@ -24,12 +24,12 @@ insert_store_view = "INSERT INTO core_store values (NULL, '%s', '%s', '%s', '%s'
 select_storeid = "select store_id from core_store where website_id='%s'"
 update_store = "UPDATE core_store_group SET default_store_id='%s' WHERE website_id='%s'"
 
-#insert_core_config_data
+#insert_coreconfig = "insert into core_config_data values ()"
 
 
 def mysql_connection():
         # connect to db
-        conn = mysql.connector.Connect(host='127.0.0.1', user='connector', password='connector', database='connector') # hvordan gør jeg de her parametre dynamiske?!
+        conn = mysql.connector.Connect(host='127.0.0.1', user='mc01', password='thebeginning', database='mc01') # hvordan gør jeg de her parametre dynamiske?!
         c = conn.cursor()
 
         c.execute(insert_website % (websitename, websitename))
@@ -60,8 +60,13 @@ def mysql_connection():
         c.execute(update_store % (storeid, websiteid)) 
         conn.commit()
 
-        # HER ER JEG IGANG NU # create core_config_data
-        #c.execute(insert_core_config_data % (x,x,x,x,x,x,))
+        # create core_config_data
+        #c.execute(insert_coreconfig % (x,x,x,x,x,x,))
+        #c.execute(insert_coreconfig
+        #c.execute(insert_coreconfig
+        #c.execute(insert_coreconfig
+        #c.execute(insert_coreconfig
+        #c.execute(insert_coreconfig
         
         c.close()
 
