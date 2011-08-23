@@ -15,9 +15,9 @@ from htaccess import htaccess
 
 # configuration
 magento_path = '/opt/lampp/htdocs/mc01/shops/'
-websitename = "websitetest2"             # also used as websitecode
-storename = "storetest2"                 
-storeviewname = "storeviewtest2"
+websitename = "websitetest"             # also used as websitecode
+storename = "storetest"                 
+storeviewname = "storeviewtest"
 catalognr = "3"                         # 3 is standard Root Catalog
 design = "blue"
 
@@ -37,15 +37,19 @@ def main():
         global path
         path = magento_path + websitename
         mkdir(path)
+        print("folder created")
 
         #mysql_connection()
         mysql_connection()
+        print("database info inserted")
         
         # echo .htaccess
         write_file('.htaccess', htaccess)
+        print("htaccess file created")
         
         # echo index.php
         write_file('index.php', indexphp % (websitename))
+        print("index file created")
                 
 
 #functions
