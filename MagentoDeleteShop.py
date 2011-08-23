@@ -21,7 +21,7 @@ def main():
         dl_dbdata()
         print("db information deleted")
 
-        #print("shop deleted")
+        print("shop deleted")
 
 
 #functions

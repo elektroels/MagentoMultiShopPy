@@ -50,6 +50,8 @@ def main():
         # echo index.php
         write_file('index.php', indexphp % (websitename))
         print("index file created")
+
+        print("Ready to go :-)")
                 
 
 #functions
