@@ -6,7 +6,7 @@ import mysql.connector, shutil, re
 
 # configuration
 magento_path = '/opt/lampp/htdocs/mc01/shops/'                  # path to your shop subfolder in magento dir
-websitename = "websitetest"                                     # name of website to be deleted 
+websitename = "websitetest2"                                     # name of website to be deleted 
 
 # sql statements
 select_websiteid = "select website_id from core_website where name='%s'"

@@ -15,11 +15,11 @@ from htaccess import htaccess
 
 # configuration
 magento_path = '/opt/lampp/htdocs/mc01/shops/'
-websitename = "websitetest"             # also used as websitecode
-storename = "storetest"                 
-storeviewname = "storeviewtest"
+websitename = "websitetest2"             # also used as websitecode
+storename = "storetest2"                 
+storeviewname = "storeviewtest2"
 catalognr = "3"                         # 3 is standard Root Catalog
-design = "blue"
+design = "default"
 
 # sql statements
 insert_website = "INSERT INTO core_website values (NULL , '%s', '%s', '0', '0', '0')"
